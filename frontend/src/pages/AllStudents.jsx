@@ -26,9 +26,11 @@ export default function AllStudents() {
   if (error) return <div className="text-center text-red-400 mt-8">{error}</div>;
 
   return (
-    <div className="max-w-4xl mx-auto mt-8 p-4 bg-gray-900 rounded-xl shadow-lg border border-gray-800">
-      <h1 className="text-2xl font-bold mb-4 text-blue-400">All Students</h1>
-      <StudentTable students={students} />
+    <div className="w-full max-w-4xl mx-auto mt-8 p-2 sm:p-4 bg-gray-900 rounded-xl shadow-lg border border-gray-800">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-blue-400 text-center">All Students</h1>
+      <div className="overflow-x-auto">
+        <StudentTable students={students} />
+      </div>
     </div>
   );
 } 

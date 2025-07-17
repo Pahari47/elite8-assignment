@@ -26,9 +26,9 @@ export default function Profile() {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-8 bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-800">
-      <h1 className="text-2xl font-bold mb-4 text-blue-400">Profile</h1>
-      {error && <div className="mb-4 text-red-400">{error}</div>}
+    <div className="w-full max-w-xl mx-auto mt-8 bg-gray-900 p-4 sm:p-6 rounded-xl shadow-lg border border-gray-800">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-blue-400 text-center">Profile</h1>
+      {error && <div className="mb-4 text-red-400 text-center">{error}</div>}
       {editing ? (
         <ProfileForm user={user} onSave={handleSave} loading={loading} />
       ) : (
@@ -40,16 +40,16 @@ export default function Profile() {
           ) : (
             <span className="inline-block px-3 py-1 rounded-full bg-red-600 text-white text-xs font-semibold ml-2">No</span>
           )}</div>
-          <div className="flex flex-wrap gap-4 mt-4">
-            <button onClick={() => setEditing(true)} className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Edit</button>
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-4">
+            <button onClick={() => setEditing(true)} className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition w-full sm:w-auto">Edit</button>
             <button
               onClick={() => navigate('/pay')}
-              className={`bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition ${user.feesPaid ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition w-full sm:w-auto ${user.feesPaid ? 'opacity-50 cursor-not-allowed' : ''}`}
               disabled={user.feesPaid}
             >
               Pay Fees
             </button>
-            <button onClick={logout} className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 transition">Logout</button>
+            <button onClick={logout} className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 transition w-full sm:w-auto">Logout</button>
           </div>
         </div>
       )}
