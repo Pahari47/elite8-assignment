@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Modal from '../components/Modal';
 import Login from './Login';
 import Signup from './Signup';
@@ -6,8 +7,13 @@ import Signup from './Signup';
 export default function LandingPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [tab, setTab] = useState('login');
+  const navigate = useNavigate();
 
   const handleSwitch = (to) => setTab(to);
+  const handleSuccess = () => {
+    setModalOpen(false);
+    navigate('/profile');
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-500 to-green-400">
@@ -35,9 +41,9 @@ export default function LandingPage() {
           </button>
         </div>
         {tab === 'login' ? (
-          <Login isModal onSwitch={() => handleSwitch('signup')} />
+          <Login isModal onSwitch={() => handleSwitch('signup')} onSuccess={handleSuccess} />
         ) : (
-          <Signup isModal onSwitch={() => handleSwitch('login')} />
+          <Signup isModal onSwitch={() => handleSwitch('login')} onSuccess={handleSuccess} />
         )}
       </Modal>
     </div>

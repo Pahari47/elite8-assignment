@@ -5,7 +5,7 @@ import { apiRequest } from '../utils/api';
 import PaymentForm from '../components/PaymentForm';
 
 export default function PayFees() {
-  const { token } = useAuth();
+  const { token, setUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -14,7 +14,8 @@ export default function PayFees() {
     setLoading(true);
     setError('');
     try {
-      await apiRequest('/profile/pay', { method: 'PUT', token });
+      const updatedUser = await apiRequest('/profile/pay', { method: 'PUT', token });
+      setUser(updatedUser);
       navigate('/profile');
     } catch (err) {
       setError(err.message || 'Payment failed');

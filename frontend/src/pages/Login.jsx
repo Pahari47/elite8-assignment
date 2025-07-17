@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 
-export default function Login({ isModal, onSwitch }) {
+export default function Login({ isModal, onSwitch, onSuccess }) {
   const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,8 +16,8 @@ export default function Login({ isModal, onSwitch }) {
     setError('');
     try {
       await login(email, password);
-      if (isModal) window.location.reload();
-      else navigate('/students');
+      if (isModal && onSuccess) onSuccess();
+      else navigate('/profile');
     } catch (err) {
       setError(err.message || 'Login failed');
     }
