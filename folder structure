@@ -1,0 +1,56 @@
+student-fee-management/
+│
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   │   ├── auth.controller.ts
+│   │   │   └── student.controller.ts
+│   │   ├── middleware/
+│   │   │   └── auth.middleware.ts
+│   │   ├── routes/
+│   │   │   ├── auth.routes.ts
+│   │   │   └── student.routes.ts
+│   │   ├── prisma/
+│   │   │   └── client.ts
+│   │   ├── utils/
+│   │   │   └── jwt.ts
+│   │   ├── app.ts
+│   │   └── server.ts
+│   ├── prisma/
+│   │   └── schema.prisma
+│   ├── .env
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── README.md
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── StudentTable.jsx
+│   │   │   ├── ProfileForm.jsx
+│   │   │   └── PaymentForm.jsx
+│   │   ├── pages/
+│   │   │   ├── AllStudents.jsx
+│   │   │   ├── Profile.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Signup.jsx
+│   │   │   └── PayFees.jsx
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx
+│   │   ├── hooks/
+│   │   │   └── useAuth.js
+│   │   ├── utils/
+│   │   │   └── api.js
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
+│   ├── package.json
+│   ├── vite.config.js
+│   └── README.md
+│
+├── README.md
+└── .gitignore
