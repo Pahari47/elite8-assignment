@@ -10,22 +10,22 @@ export default function ProfileForm({ user, onSave, loading }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded shadow">
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Name</label>
+        <label className="block mb-1 font-medium text-blue-400">Name</label>
         <input
           type="text"
-          className="w-full border px-3 py-2 rounded"
+          className="w-full border border-gray-700 bg-gray-900 text-white px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={name}
           onChange={e => setName(e.target.value)}
           required
         />
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Email</label>
+        <label className="block mb-1 font-medium text-blue-400">Email</label>
         <input
           type="email"
-          className="w-full border px-3 py-2 rounded"
+          className="w-full border border-gray-700 bg-gray-900 text-white px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={email}
           onChange={e => setEmail(e.target.value)}
           required
@@ -33,7 +33,7 @@ export default function ProfileForm({ user, onSave, loading }) {
       </div>
       <button
         type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition w-full font-semibold"
         disabled={loading}
       >
         {loading ? 'Saving...' : 'Save'}

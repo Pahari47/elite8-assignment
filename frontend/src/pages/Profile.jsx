@@ -26,22 +26,30 @@ export default function Profile() {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-8 bg-white p-6 rounded shadow">
-      <h1 className="text-2xl font-bold mb-4">Profile</h1>
-      {error && <div className="mb-4 text-red-600">{error}</div>}
+    <div className="max-w-xl mx-auto mt-8 bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-800">
+      <h1 className="text-2xl font-bold mb-4 text-blue-400">Profile</h1>
+      {error && <div className="mb-4 text-red-400">{error}</div>}
       {editing ? (
         <ProfileForm user={user} onSave={handleSave} loading={loading} />
       ) : (
         <div>
-          <div className="mb-2"><span className="font-medium">Name:</span> {user.name}</div>
-          <div className="mb-2"><span className="font-medium">Email:</span> {user.email}</div>
-          <div className="mb-2"><span className="font-medium">Fees Paid:</span> {user.feesPaid ? 'Yes' : 'No'}</div>
-          <div className="flex gap-4 mt-4">
-            <button onClick={() => setEditing(true)} className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Edit</button>
-            {!user.feesPaid && (
-              <button onClick={() => navigate('/pay')} className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Pay Fees</button>
-            )}
-            <button onClick={logout} className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Logout</button>
+          <div className="mb-2"><span className="font-medium text-gray-300">Name:</span> <span className="text-white">{user.name}</span></div>
+          <div className="mb-2"><span className="font-medium text-gray-300">Email:</span> <span className="text-white">{user.email}</span></div>
+          <div className="mb-2"><span className="font-medium text-gray-300">Fees Paid:</span> {user.feesPaid ? (
+            <span className="inline-block px-3 py-1 rounded-full bg-green-600 text-white text-xs font-semibold ml-2">Yes</span>
+          ) : (
+            <span className="inline-block px-3 py-1 rounded-full bg-red-600 text-white text-xs font-semibold ml-2">No</span>
+          )}</div>
+          <div className="flex flex-wrap gap-4 mt-4">
+            <button onClick={() => setEditing(true)} className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Edit</button>
+            <button
+              onClick={() => navigate('/pay')}
+              className={`bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition ${user.feesPaid ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={user.feesPaid}
+            >
+              Pay Fees
+            </button>
+            <button onClick={logout} className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 transition">Logout</button>
           </div>
         </div>
       )}

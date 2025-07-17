@@ -22,12 +22,12 @@ export default function AllStudents() {
     fetchStudents();
   }, [token]);
 
-  if (loading) return <div className="text-center mt-8">Loading...</div>;
-  if (error) return <div className="text-center text-red-600 mt-8">{error}</div>;
+  if (loading) return <div className="text-center mt-8 text-blue-400">Loading...</div>;
+  if (error) return <div className="text-center text-red-400 mt-8">{error}</div>;
 
   return (
-    <div className="max-w-3xl mx-auto mt-8">
-      <h1 className="text-2xl font-bold mb-4">All Students</h1>
+    <div className="max-w-4xl mx-auto mt-8 p-4 bg-gray-900 rounded-xl shadow-lg border border-gray-800">
+      <h1 className="text-2xl font-bold mb-4 text-blue-400">All Students</h1>
       <StudentTable students={students} />
     </div>
   );
