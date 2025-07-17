@@ -71,12 +71,8 @@ npm run dev
 ---
 
 ## 🌐 Deployment
-- Update the `.env` files in both `backend/` and `frontend/` for your production URLs and secrets.
-- Deploy backend (e.g., Render, Heroku, Railway) and frontend (e.g., Vercel, Netlify).
-- Use [Prisma docs](https://www.prisma.io/docs/) for database migrations in production.
+- Frontend: Deploy on Vercel
+- Backend: Deploy on Render
+- Update frontend : https://elite8-assignment-ten.vercel.app/ backend : https://elite8-assignment.onrender.com
 
----
-
-## 📄 License
-MIT
  
