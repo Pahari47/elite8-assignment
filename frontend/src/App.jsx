@@ -37,7 +37,7 @@ export default function App() {
         <div className="min-h-screen bg-gray-950 text-white">
           <Navbar onLogin={handleLogin} />
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage onLogin={handleLogin} />} />
             <Route path="/students" element={<PrivateRoute><AllStudents /></PrivateRoute>} />
             <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
             <Route path="/pay" element={<PrivateRoute><PayFees /></PrivateRoute>} />

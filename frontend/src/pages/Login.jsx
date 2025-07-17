@@ -25,26 +25,26 @@ export default function Login({ isModal, onSwitch, onSuccess }) {
   };
 
   const form = (
-    <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow max-w-md w-full">
-      <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-      {error && <div className="mb-4 text-red-600">{error}</div>}
+    <form onSubmit={handleSubmit} className="bg-gray-900 border border-gray-700 p-8 rounded-2xl shadow-2xl max-w-md w-full">
+      <h2 className="text-3xl font-extrabold mb-6 text-center text-blue-400">Login</h2>
+      {error && <div className="mb-4 text-red-400 text-center">{error}</div>}
       <div className="mb-4">
-        <label className="block mb-1">Email</label>
-        <input type="email" className="w-full border px-3 py-2 rounded" value={email} onChange={e => setEmail(e.target.value)} required />
+        <label className="block mb-1 text-blue-300 font-semibold">Email</label>
+        <input type="email" className="w-full border border-gray-700 bg-gray-800 text-white px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" value={email} onChange={e => setEmail(e.target.value)} required />
       </div>
       <div className="mb-6">
-        <label className="block mb-1">Password</label>
-        <input type="password" className="w-full border px-3 py-2 rounded" value={password} onChange={e => setPassword(e.target.value)} required />
+        <label className="block mb-1 text-blue-300 font-semibold">Password</label>
+        <input type="password" className="w-full border border-gray-700 bg-gray-800 text-white px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" value={password} onChange={e => setPassword(e.target.value)} required />
       </div>
-      <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700" disabled={loading}>
+      <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-bold text-lg transition mb-2" disabled={loading}>
         {loading ? 'Logging in...' : 'Login'}
       </button>
-      <div className="mt-4 text-center">
+      <div className="mt-4 text-center text-gray-300">
         Don't have an account?{' '}
         {isModal ? (
-          <button type="button" className="text-blue-600 hover:underline" onClick={onSwitch}>Sign up</button>
+          <button type="button" className="text-blue-400 hover:underline font-semibold" onClick={onSwitch}>Sign up</button>
         ) : (
-          <Link to="/signup" className="text-blue-600 hover:underline">Sign up</Link>
+          <Link to="/signup" className="text-blue-400 hover:underline font-semibold">Sign up</Link>
         )}
       </div>
     </form>
@@ -52,6 +52,6 @@ export default function Login({ isModal, onSwitch, onSuccess }) {
 
   if (isModal) return form;
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">{form}</div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-950">{form}</div>
   );
 } 
